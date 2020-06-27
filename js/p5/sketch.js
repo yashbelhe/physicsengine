@@ -1,4 +1,5 @@
 let movingObjects = [];
+let staticObjects = [];
 let fps = 60;
 let del_t = 1/fps;
 
@@ -12,6 +13,9 @@ function setup() {
 
     new_rect = new Rectangle(300, 300, 5, 100, 100);
     movingObjects.push(new_rect);
+
+    new_boundary = new Boundary(30, 30, 30, 30);
+    staticObjects.push(new_boundary);
 }
 
 function draw() {
@@ -19,5 +23,8 @@ function draw() {
     for (var i = 0; i < movingObjects.length; i++) {
         movingObjects[i].update();
         movingObjects[i].show();
+    }
+    for (var i = 0; i < staticObjects.length; i++) {
+        staticObjects[i].show();
     }
 }
